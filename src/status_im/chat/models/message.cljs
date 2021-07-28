@@ -31,7 +31,9 @@
 (defn hide-message
   "Hide chat message, rebuild message-list"
   [{:keys [db]} chat-id message-id]
-  ;;TODO this is too expensive, probably we could mark message somehow and just hide it in the UI
+  ;; TODO this is too expensive, probably we could mark message somehow and just hide it in the UI
+  ;; UPDATE <shivekkhurana> - I have implemented a UI only delete at
+  ;; chat.models.input/soft-delete-message-success
   (message-list/rebuild-message-list {:db (update-in db [:messages chat-id] dissoc message-id)} chat-id))
 
 (fx/defn add-senders-to-chat-users
