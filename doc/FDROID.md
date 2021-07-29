@@ -127,6 +127,8 @@ The original research was done in [#8512](https://github.com/status-im/status-re
 
 Normally F-Droid server wants to run Gradle itself, but we do not specify the `gradle` key in order to run `make release-fdroid` ourselves in `build` step. We also add `android/build.gradle` to `scanignore` to avoid F-Droid trying to use Gradle directly.
 
+The Android metadata alike description or screenshots is [normally loaded from our repository](https://f-droid.org/en/docs/All_About_Descriptions_Graphics_and_Screenshots/#fastlane-structure) based on the Fastlane [`supply`](https://docs.fastlane.tools/actions/supply/) tool folder structure for updating Google Play store metadata.
+
 Once the PR is merged it may take a few days for the F-Droid server farm to build and deploy the new version to their site and app. You can look up the current state of builds [here](https://f-droid.org/wiki/index.php?title=Special:RecentChanges&days=7&from=&hidebots=0&hideanons=1&hideliu=1&limit=500) and look for your App ID and a `deploy` change after it.
 
 # F-Droid Build
